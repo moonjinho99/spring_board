@@ -12,6 +12,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.lbi.model.BoardVO;
 import com.lbi.model.Criteria;
+import com.lbi.model.PageMakerDTO;
 import com.lbi.service.BoardService;
 
 @Controller
@@ -28,6 +29,12 @@ public class BoardController {
 		log.info("게시판 목록 페이지 진입");
 		
 		model.addAttribute("list",bservice.getListPaging(cri));
+		
+		int total = bservice.getTotal(cri);
+		
+		PageMakerDTO pageMake = new PageMakerDTO(cri,total);
+	
+		model.addAttribute("pageMaker",pageMake);
 	}
 	
 	@GetMapping("/enroll")

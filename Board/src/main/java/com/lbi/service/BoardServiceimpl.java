@@ -54,5 +54,10 @@ public class BoardServiceimpl implements BoardService{
 		return mapper.getListPaging(cri);
 	}
 	
+	//게시물 총 갯수
+	public int getTotal(Criteria cri) {
+		return mapper.getTotal(cri);
+	}
+	
 	
 }

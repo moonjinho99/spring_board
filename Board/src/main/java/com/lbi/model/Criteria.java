@@ -1,5 +1,7 @@
 package com.lbi.model;
 
+import java.util.Arrays;
+
 public class Criteria {
 
 	//현재 페이지
@@ -8,6 +10,42 @@ public class Criteria {
 	//한 페이지 당 보여질 게시물 갯수
 	private int amount;
 	
+	//검색 키워드
+	private String keyword;
+	
+	//검색 타입
+	private String type;
+	
+	//검색 타입 배열
+	private String[] typeArr;
+	
+	
+	
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+		this.typeArr = type.split("");
+	}
+
+	public String[] getTypeArr() {
+		return typeArr;
+	}
+
+	public void setTypeArr(String[] typeArr) {
+		this.typeArr = typeArr;
+	}
+
+	public String getKeyword() {
+		return keyword;
+	}
+
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
+
 	//기본 생성자 -> 기본 세팅 : pageNum = 1, amount = 10
 	public Criteria()
 	{
@@ -38,8 +76,8 @@ public class Criteria {
 
 	@Override
 	public String toString() {
-		return "Criteria [pageNum=" + pageNum + ", amount=" + amount + "]";
+		return "Criteria [pageNum=" + pageNum + ", amount=" + amount + ", keyword=" + keyword + ", type=" + type
+				+ ", typeArr=" + Arrays.toString(typeArr) + "]";
 	}
-	
-	
+
 }
